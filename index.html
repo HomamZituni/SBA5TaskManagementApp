@@ -19,7 +19,8 @@
 <input type="text" id="taskcategory" placeholder="Enter category">
 
 <label for="taskdeadline">Deadline:</label>
-<input type="date" id="taskdeadline">
+<input type="date" id="taskdeadline" aria-describedly="deadlinehint">
+<small>Pick a date for your task deadline</small>
 
 <label for="taskstatus">Status:</label>
 <select id="taskstatus">
@@ -41,6 +42,7 @@
 <option value="Completed">Completed</option>
 <option value="Overdue">Overdue</option>
 </select>
+
 <label for="categoryfilter">Filter by Category:</label>
 <select id="categoryFilter">
 <option value="all">All</option>
