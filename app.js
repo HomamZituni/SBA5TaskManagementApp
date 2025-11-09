@@ -1,5 +1,25 @@
 
 
+let tasks = [];
+
+function addTask(name, category, deadline, status) {
+const task = {
+name: name,
+category: category, 
+deadline: deadline,
+status: status
+};
+tasks.push(task);
+
+console.log(`Task "${name}" added.`);
+console.log(tasks);
+
+
+
+
+
+
+
 
 
 
