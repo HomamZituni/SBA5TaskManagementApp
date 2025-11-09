@@ -1,4 +1,5 @@
 
+//Task Input Code 
 
 let tasks = [];
 
@@ -19,9 +20,25 @@ addTask("Finish project", "Work", "2025-11-12", "In Progress");
 
 
 
+// Task Render Code
 
+function renderTasks(tasksArray) {
+const taskListElement = document.getElementById('taskList');
+taskListElement.innerHTML= '';
 
+tasksArray.forEach(function(task)
+    { const li= document.createElement("li");
+     li.textContent = `${task.name} Category: ${task.category} | Deadline: ${task.deadline} | Status: ${task.status}`;
+     taskListElement.appendChild(li);
+    });
+}
 
+tasks = [
+    { name: "Buy groceries", category: "Personal", deadline: "2025-11-10", status: "In Progress" },
+    { name: "Finish project", category: "Work", deadline: "2025-11-12", status: "In Progress" }
+];
+
+renderTasks(tasks);
 
 
 
