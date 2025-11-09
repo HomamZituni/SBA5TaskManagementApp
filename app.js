@@ -12,7 +12,10 @@ status: status
 tasks.push(task);
 
 console.log(`Task "${name}" added.`);
-console.log(tasks);
+console.log(tasks); }
+
+addTask("Buy groceries", "Personal", "2025-11-10", "In Progress");
+addTask("Finish project", "Work", "2025-11-12", "In Progress");
 
 
 
@@ -31,8 +34,7 @@ console.log(tasks);
 
 
 
-
-
+/*
 /* Add Task Function pseudo code
 let tasks = [];
 
