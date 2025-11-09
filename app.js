@@ -103,4 +103,19 @@ return tasks.filter(task => task.status == criteria || task.category == criteria
 }
 */
 
+/* const filterDropdown= document.getElementById("fitlerStatus");
+filterDropdown.addEventListener("change", (event) => {
+const selectedFilter = event.target.value;
+const filteredTasks = filterTasks(selectedFilter);
+renderTasks(filteredTasks);
 
+} */
+
+/* Local storage
+
+const savedTasks = localStorage.getItem("tasks");
+if (savedTasks) {
+    tasks = JSON.parse(savedTasks);
+    renderTasks(tasks);
+}
+*/
