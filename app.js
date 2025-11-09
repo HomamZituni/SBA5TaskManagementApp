@@ -45,9 +45,25 @@ function updateTaskStatus(task) {
     }
 }
 
+// Task Drop Down
 
 
 
+// Filter Tasks
+
+function filterTasks(criteria) {
+    return tasks.filter(task => task.status === criteria || task.category === criteria);
+}
+
+
+// Filter Drop Down
+
+const filterDropdown = document.getElementById("filterStatus");
+filterDropdown.addEventListener("change", (event) => {
+    const selectedFilter = event.target.value;
+    const filteredTasks = selectedFilter === "all" ? tasks : filterTasks(selectedFilter);
+    renderTasks(filteredTasks);
+});
 
 
 
