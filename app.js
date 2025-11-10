@@ -112,7 +112,7 @@ localStorage.setItem("tasks", JSON.stringify(tasks));
     renderTasks();
 });
 
-// Delete Button 
+
 
 
 
@@ -253,6 +253,16 @@ statusDropdown.addEventListener("change", (event) => {
 });
 
 */
+
+
+// Delete Button 
+/* for each task create a new button called delete
+set the text to delete 
+when delete button clicked: 
+remove the task at the current index from task list
+save the update tasks list to the local storage
+re render task list on screen, add deletebutton to the list item
+add list item to the task list element on the page */
 
 
 //All Tests passed
