@@ -47,6 +47,23 @@ function updateTaskStatus(task) {
 
 // Task Drop Down
 
+const statusDropdown = document.createElement("select");
+
+["In Progress", "Completed", "Overdue"].forEach(status => {
+  const option = document.createElement("option");
+  option.value = status;
+  option.textContent = status;
+  statusDropdown.appendChild(option);
+});
+
+statusDropdown.value = task.status;
+
+statusDropdown.addEventListener("change", (event) => {
+  task.status = event.target.value;
+  renderTasks(tasks);
+});
+
+li.appendChild(statusDropdown);
 
 
 // Filter Tasks
@@ -57,7 +74,16 @@ function filterTasks(criteria) {
 
 
 // Filter Drop Down
+const filterDropdown = document.getElementById("filterStatus");
 
+filterDropdown.addEventListener("change", (event) => {
+  const selected = event.target.value;
+const filtered = selected === "all" 
+    ? tasks 
+    : tasks.filter(task => task.status === selected);
+
+  renderTasks(filtered);
+});
 
 // Local Storage
 
@@ -82,8 +108,9 @@ function addTask(name, category, deadline, status) {
 
 
 
-/*
-/* Add Task Function intput pseudo code
+/*  Planning Code
+
+Task Data /Add Task 
 let tasks = [];
 
 function addTask(taskName) {
@@ -95,6 +122,7 @@ addTask("walk dog");
 console.log(tasks);
 */
 
+/*    Render Task List 
 /* function renderTasks: 
  clear current task list display
   for each task in tasks array:
@@ -114,12 +142,19 @@ console.log(tasks);
 
     */
 
-    /* Update Task Status: 
+
+
+
+    /*       Update Task Status: 
     if (new Date(task.deadline) < new Date()) {
     task.status = "Overdue";
 } */
 
-/* Add Drop Down
+
+
+
+
+/* Task Status Drop Down
 const option = document.createElement("option");
 option.value = "In Progress";
 option.textContent = "In Progress";
@@ -167,7 +202,11 @@ li.appendChild(statusDropdown);
 
 */ 
 
-/*  Task Filter 
+
+
+
+/*  Task Filtering 
+
 function filterTasks(criteria) {
 return tasks.filter(task => task.status == criteria || task.category == criteria);
 }
@@ -180,6 +219,9 @@ const filteredTasks = filterTasks(selectedFilter);
 renderTasks(filteredTasks);
 
 } */
+
+
+
 
 /* Local storage
 
