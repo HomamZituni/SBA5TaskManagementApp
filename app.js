@@ -31,12 +31,28 @@ tasksArray.forEach(function(task)
       <strong>${task.name}</strong><br>
       Category: ${task.category}<br>
       Deadline: ${task.deadline}<br>
-      Status: ${task.status}
     `;
-    taskListElement.appendChild(li);
-    });
-}
 
+ const statusDropdown = document.createElement("select");
+    ["In Progress", "Completed", "Overdue"].forEach(status => {
+        const option = document.createElement("option");
+        option.value = status;
+        option.textContent = status;
+        statusDropdown.appendChild(option);
+    });
+
+    statusDropdown.value = task.status;
+
+    statusDropdown.addEventListener("change", (event) => {
+        task.status = event.target.value;
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+        renderTasks(tasks);
+    });
+
+    li.appendChild(statusDropdown);
+    taskListElement.appendChild(li);
+});
+}    
 // Task Status Code
 
 function updateTaskStatus(task) {
@@ -44,26 +60,6 @@ function updateTaskStatus(task) {
         task.status = "Overdue";
     }
 }
-
-// Task Drop Down
-
-const statusDropdown = document.createElement("select");
-
-["In Progress", "Completed", "Overdue"].forEach(status => {
-  const option = document.createElement("option");
-  option.value = status;
-  option.textContent = status;
-  statusDropdown.appendChild(option);
-});
-
-statusDropdown.value = task.status;
-
-statusDropdown.addEventListener("change", (event) => {
-  task.status = event.target.value;
-  renderTasks(tasks);
-});
-
-li.appendChild(statusDropdown);
 
 
 // Filter Tasks
